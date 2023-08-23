@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?> 
+<?import javafx.scene.control.*?> 
+<?import javafx.scene.control.cell.*?> 
+
+<VBox fx:controller="controller.FacultyController" xmlns:fx="http://javafx.com/fxml/1" alignment="center"
+      spacing="10" styleClass="background" prefHeight="400.0" prefWidth="600.0">
+    
+    <stylesheets>
+        <URL value="@tmsfx.css"/>
+    </stylesheets>
+
+    <HBox alignment="TOP_LEFT" >
+        <Label text="Filters" styleClass="label-h2"/>
+    </HBox>
+    <HBox alignment="CENTER">
+        <Label text="Name:" styleClass="label-opac"/>
+        <TextField fx:id="nameTf" promptText="Filter by name"/>
+        <Label text="Email:" styleClass="label-opac"/>
+        <TextField fx:id="emailTf" promptText="Filter by email"/>
+    </HBox>
+    <Separator/>
+<VBox styleClass="content">
+        <TableView fx:id="studentTable" prefHeight="250" styleClass="table-cell" items="${controller.faculty.students}">
+            <columns>
+                <TableColumn text="Name" minWidth="181.3" >
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Email" minWidth="181.3">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="email"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Phone" minWidth="181.3">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phone"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+    <Separator/> 
+    <HBox spacing ="20" alignment="center">
+        <Button text="Add" styleClass="button" onAction="#handleAdd"/>
+        <Button fx:id="deleteBtn" text="Delete"  styleClass="button" disable="true" onAction="#handleDelete"/>
+        <Button fx:id="selectBtn" text="Select" styleClass="button" disable="true" onAction="#handleSelect"/>
+        <Button fx:id="slipBtn" text="SLIP" styleClass="button" disable="true" onAction="#handleSlip"/>
+        <Button text="Report" styleClass="button" onAction="#handleReport"/>
+        <Button text="Close" styleClass="button" onAction="#handleClose"/>
+    </HBox>
+    
+</VBox>
